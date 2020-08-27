@@ -1,7 +1,10 @@
 
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
-
+import random
+import string
+import hashlib
+#from CLIENT import clientHash
 
 # Restrict to a particular path.
 class RequestHandler(SimpleXMLRPCRequestHandler):
@@ -12,27 +15,28 @@ server = SimpleXMLRPCServer(("localhost", 8000),
                             requestHandler=RequestHandler)
 server.register_introspection_functions()
 
-# Generate random number 
-randnum = [1,2,3,4,5,6,7]
-random.shuffle(randnum)
+# Generate random number
+def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 
+	return ''.join(random.choice(chars) for _ in range(size))
+server.register_function(genRandnumber)
 
-# Register pow() function; this will use the value of
-# pow.__name__ as the name, which is just 'pow'.
-server.register_function(pow)
+# Create server hash
+password = 'Pass123'
+key = hashlib.sha256(genRandnumber().encode('utf-8'))
 
-# Register a function under a different name
-def adder_function(x,y):
-    return x + y
-server.register_function(adder_function, 'add')
+def serverHash():
 
-# Register an instance; all the methods of the instance are
-# published as XML-RPC methods (in this case, just 'div').
-class MyFuncs:
-    def div(self, x, y):
-        return x // y
+    return password + key.hexdigest()
 
-server.register_instance(MyFuncs())
+# Compare own hash with client hash
+'''
+def compareHashes():
+    if serverHash() == clientHash():
+        print('Hashes match')
+    else:
+        print('Hashes do not match')
+'''
 
 # Run the server's main loop
 server.serve_forever()
