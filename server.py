@@ -4,7 +4,7 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 import random
 import string
 import hashlib
-#from CLIENT import clientHash
+
 
 # Restrict to a particular path.
 class RequestHandler(SimpleXMLRPCRequestHandler):
@@ -12,7 +12,7 @@ class RequestHandler(SimpleXMLRPCRequestHandler):
 
 # Create server
 server = SimpleXMLRPCServer(("localhost", 8000),
-                            requestHandler=RequestHandler)
+                            requestHandler=RequestHandler, allow_none=True)
 server.register_introspection_functions()
 
 # Generate random number
@@ -22,21 +22,24 @@ def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 server.register_function(genRandnumber)
 
 # Create server hash
-password = 'Pass123'
-key = hashlib.sha256(genRandnumber().encode('utf-8'))
+def hasher(password):
+    if password == 'Pass123':
+        key = hashlib.sha256(genRandnumber().encode('utf-8'))
+        password + key.hexdigest()
+        return "you're logged int!"
 
-def serverHash():
+    elif password != 'Pass123':
+        return "loggin failed!"
+server.register_function(hasher)
 
-    return password + key.hexdigest()
 
-# Compare own hash with client hash
-'''
-def compareHashes():
-    if serverHash() == clientHash():
-        print('Hashes match')
-    else:
-        print('Hashes do not match')
-'''
+
+# test function
+def add(x, y):
+    return x + y
+server.register_function(add, 'add')
+
+
 
 # Run the server's main loop
 server.serve_forever()
