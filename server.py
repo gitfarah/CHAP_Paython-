@@ -26,7 +26,7 @@ def hasher(password):
     if password == 'Pass123':
         key = hashlib.sha256(genRandnumber().encode('utf-8'))
         password + key.hexdigest()
-        return "you're logged int!"
+        return "you're logged in!"
 
     elif password != 'Pass123':
         return "loggin failed!"
