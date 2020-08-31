@@ -4,6 +4,7 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 import random
 import string
 import hashlib
+import sys
 
 
 # Restrict to a particular path.
@@ -30,6 +31,7 @@ def hasher(password):
 
     elif password != 'Pass123':
         return "loggin failed!"
+	sys.exit(0)
 server.register_function(hasher)
 
 
