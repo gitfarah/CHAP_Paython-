@@ -42,10 +42,9 @@ Users = {Omar, Max}
 # Create clients()
 def clients():
 	login = input("Enter username: ")
-	pass =  input("Enter password: ") 
 	
 	#check!
-	if login in Users and pass == 'Pass123'
+	if login in Users:
 		clientHasher()
 		
 	
@@ -53,15 +52,15 @@ def clients():
 
 # Create serverHasher()
 def serverHasher():
-		password == 'Pass123':
+		password = 'Pass123':
 		hash = password + genRandnumber()
 		hashlib.sha256(hash.encode('utf-8'))
 		return hash.hexdigest()
 #server.register_function(hasher)
 
 # Create clientHasher()
-def clientHasher():
-		password == 'Pass123':
+def clientHasher(password):
+	if password == 'Pass123':
 		hash = password + genRandnumber()
 		hashlib.sha256(hash.encode('utf-8'))
 		return hash.hexdigest()
