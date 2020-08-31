@@ -45,7 +45,9 @@ def clients():
 	pass =  input("Enter password: ") 
 	
 	#check!
-	if login in Users and pass == 
+	if login in Users and pass == 'Pass123'
+		clientHasher()
+		
 	
 
 
