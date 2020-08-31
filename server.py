@@ -21,7 +21,7 @@ def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
 server.register_function(genRandnumber)
 
-# Create server hash
+# Create server hasher
 def hasher(password):
     if password == 'Pass123':
         key = hashlib.sha256(genRandnumber().encode('utf-8'))
@@ -32,6 +32,20 @@ def hasher(password):
         return "loggin failed!"
 server.register_function(hasher)
 
+
+# Notes to improve hasher 
+'''
+def hasher (password):
+	if password == 'Pass123':
+		hash = password + genRandnumber()
+		hashlib.sha256(hash.encode('utf-8'))
+		hash.hexdigest()
+		return "you're logged in"
+	
+	elif password != 'Pass123':
+		return "loggin failed"
+server.register_function(hasher)
+'''
 
 
 # test function
