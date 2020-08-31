@@ -1,4 +1,3 @@
-
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 import random
@@ -10,10 +9,12 @@ import hashlib
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
+
 # Create server
 server = SimpleXMLRPCServer(("localhost", 8000),
                             requestHandler=RequestHandler, allow_none=True)
 server.register_introspection_functions()
+
 
 # Generate random number
 def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
@@ -21,7 +22,24 @@ def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
 server.register_function(genRandnumber)
 
-# Create server hash
+users = {"omar" : "pass123", "jan" : "pass456" }
+rand = genRandnumber()
+
+
+# method hasher() erstellt hashWert:
+def hasher(random, password):
+    key = random + password
+    hashValue = hashlib.sha256(key.encode('utf-8'))
+    return hashValue.hexdigest()
+
+
+
+
+
+
+
+
+'''
 def hasher(password):
     if password == 'Pass123':
         key = hashlib.sha256(genRandnumber().encode('utf-8'))
@@ -29,10 +47,13 @@ def hasher(password):
         return "you're logged int!"
 
     elif password != 'Pass123':
-        return "loggin failed!"
+        return "logging failed!", server.server_close()
+
+
+
 server.register_function(hasher)
 
-
+'''
 
 # test function
 def add(x, y):
