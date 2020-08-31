@@ -37,16 +37,51 @@ server.register_function(hasher)
 
 # Notes to improve hasher 
 '''
-def hasher (password):
-	if password == 'Pass123':
+Users = {Omar, Max}
+
+# Create clients()
+def clients():
+	login = input("Enter username: ")
+	pass =  input("Enter password: ") 
+	
+	#check!
+	if login in Users and pass == 
+	
+
+
+# Create serverHasher()
+def serverHasher():
+		password == 'Pass123':
 		hash = password + genRandnumber()
 		hashlib.sha256(hash.encode('utf-8'))
-		hash.hexdigest()
+		return hash.hexdigest()
+#server.register_function(hasher)
+
+# Create clientHasher()
+def clientHasher():
+		password == 'Pass123':
+		hash = password + genRandnumber()
+		hashlib.sha256(hash.encode('utf-8'))
+		return hash.hexdigest()
+#server.register_function(serverHasher)
+'''
+
+# Notes for hashCompare
+'''
+def hashCompare():
+    while (true):
+	if serverHasher() == clientHasher():
 		return "you're logged in"
-	
-	elif password != 'Pass123':
-		return "loggin failed"
-server.register_function(hasher)
+		break
+	elif serverHasher() != clientHasher():
+		return "loggin failed, plz repeat"
+	elif serverHasher() != clientHasher():
+		return "loggin failed, plz repeat"
+	elif serverHasher() != clientHasher():
+		return "loggin failed, plz repeat"
+	else:
+		sys.exit(0)
+		
 '''
 
 
