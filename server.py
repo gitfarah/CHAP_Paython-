@@ -3,6 +3,7 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 import random
 import string
 import hashlib
+import sys
 
 
 # Restrict to a particular path.
@@ -22,7 +23,10 @@ def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
 server.register_function(genRandnumber)
 
+# Users Dic
 users = {"omar" : "pass123", "jan" : "pass456" }
+
+# Stroing generated random string in "rand"
 rand = genRandnumber()
 
 
@@ -32,28 +36,6 @@ def hasher(random, password):
     hashValue = hashlib.sha256(key.encode('utf-8'))
     return hashValue.hexdigest()
 
-
-
-
-
-
-
-
-'''
-def hasher(password):
-    if password == 'Pass123':
-        key = hashlib.sha256(genRandnumber().encode('utf-8'))
-        password + key.hexdigest()
-        return "you're logged int!"
-
-    elif password != 'Pass123':
-        return "logging failed!", server.server_close()
-
-
-
-server.register_function(hasher)
-
-'''
 
 # test function
 def add(x, y):
