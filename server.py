@@ -33,7 +33,15 @@ def hasher(random, password):
     return hashValue.hexdigest()
 
 
-
+# Methode CompareHashes(user, hashValue) vergleicht Hashswerte von Cleint und Server
+# sowie authentifiziert der User:
+def compareHashes(user, hashValue):
+    for user in users:
+        if hasher(random, password) == hashValue:
+            return "success"
+        else:
+            return "failed"
+server.register_function(compareHashes)
 
 
 
