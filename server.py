@@ -26,6 +26,24 @@ users = {"omar" : "pass123", "jan" : "pass456" }
 rand = genRandnumber()
 
 
+
+
+# method logger() logs users ein:
+def logger():
+    user = input("enter user: ")
+    password = input("enter pass: ")
+
+    # check!
+    if user in users and password == users[user]:
+        rand = s.genRandnumber()
+        hashValue = hasher(rand, password)
+        print(s.compareHashes(user, hashValue))
+    else:
+        return "failed"
+
+
+
+
 # method hasher() erstellt hashWert:
 def hasher(random, password):
     key = random + password
@@ -37,7 +55,8 @@ def hasher(random, password):
 # sowie authentifiziert der User:
 def compareHashes(user, hashValue):
     for user in users:
-        if hasher(random, password) == hashValue:
+        secret = password == users[user]
+        if hasher(rand, secret) == hashValue:
             return "success"
         else:
             return "failed"
