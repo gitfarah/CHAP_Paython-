@@ -8,19 +8,6 @@ users = {"omar" : "pass123", "jan" : "pass456" }
 
 
 
-# method logger() logs users ein:
-def logger():
-    user = input("enter user: ")
-    password = input("enter pass: ")
-
-    # check!
-    if user in users and password == users[user]:
-        rand = s.genRandnumber()
-        hashValue = hasher(rand, password)
-        print(hashValue)
-    else:
-        return "failed"
-
 
 # method hasher() erstellt hashWert:
 def hasher(random, password):
