@@ -3,7 +3,6 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 import random
 import string
 import hashlib
-import sys
 
 
 # Restrict to a particular path.
@@ -23,11 +22,26 @@ def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 	return ''.join(random.choice(chars) for _ in range(size))
 server.register_function(genRandnumber)
 
-# Users Dic
 users = {"omar" : "pass123", "jan" : "pass456" }
-
-# Stroing generated random string in "rand"
 rand = genRandnumber()
+
+
+
+
+# method logger() logs users ein:
+def logger():
+    user = input("enter user: ")
+    password = input("enter pass: ")
+
+    # check!
+    if user in users and password == users[user]:
+        rand = s.genRandnumber()
+        hashValue = hasher(rand, password)
+        print(s.compareHashes(user, hashValue))
+    else:
+        return "failed"
+
+
 
 
 # method hasher() erstellt hashWert:
@@ -36,6 +50,37 @@ def hasher(random, password):
     hashValue = hashlib.sha256(key.encode('utf-8'))
     return hashValue.hexdigest()
 
+
+# Methode CompareHashes(user, hashValue) vergleicht Hashswerte von Cleint und Server
+# sowie authentifiziert der User:
+def compareHashes(user, hashValue):
+    for user in users:
+        secret = password == users[user]
+        if hasher(rand, secret) == hashValue:
+            return "success"
+        else:
+            return "failed"
+server.register_function(compareHashes)
+
+
+
+
+
+'''
+def hasher(password):
+    if password == 'Pass123':
+        key = hashlib.sha256(genRandnumber().encode('utf-8'))
+        password + key.hexdigest()
+        return "you're logged int!"
+
+    elif password != 'Pass123':
+        return "logging failed!", server.server_close()
+
+
+
+server.register_function(hasher)
+
+'''
 
 # test function
 def add(x, y):
