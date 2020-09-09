@@ -1,12 +1,11 @@
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 import random
-import string
 import hashlib
 
 
 # Restrict to a particular path.
-class RequestHandler(SimpleXMLRPCRequestHandler):
+class RequestHandler(SimpleXMLRPCRequestHandler) :
     rpc_paths = ('/RPC2',)
 
 
@@ -15,78 +14,75 @@ server = SimpleXMLRPCServer(("localhost", 8000),
                             requestHandler=RequestHandler, allow_none=True)
 server.register_introspection_functions()
 
+# something to say about this!:
+omarIsLoggedIn = False
+maxIsLoggedIn = False
+jokerIsLoggedIn = False
+randomNum = None
 
-# Generate random number
-def genRandnumber(size=6, chars=string.ascii_uppercase + string.digits):
 
-	return ''.join(random.choice(chars) for _ in range(size))
+# getPasswordByUsername() method will return password based on available user
+def getPasswordByUsername(username):
+    f = open("users.txt", "r")
+    for account in f.readlines():
+        us, pw = account.strip().split("|")
+        if (username in us):
+            print("lol")
+            return pw
+
+# genRandnumber generates random number that will be stored afterwards:
+def genRandnumber():
+    global randomNum
+    randomNum = random.randint(0,9999)
+    return randomNum
 server.register_function(genRandnumber)
 
-users = {"omar" : "pass123", "jan" : "pass456" }
-rand = genRandnumber()
 
 
-
-
-# method logger() logs users ein:
-def logger():
-    user = input("enter user: ")
-    password = input("enter pass: ")
-
-    # check!
-    if user in users and password == users[user]:
-        rand = s.genRandnumber()
-        hashValue = hasher(rand, password)
-        print(s.compareHashes(user, hashValue))
-    else:
-        return "failed"
-
-
-
-
-# method hasher() erstellt hashWert:
-def hasher(random, password):
-    key = random + password
-    hashValue = hashlib.sha256(key.encode('utf-8'))
+# serverHasher generates hash from the server side:
+def serverHasher(username) :
+    password = getPasswordByUsername(username)
+    secret = password + str(randomNum)
+    hashValue = hashlib.sha256(secret.encode('utf-8'))
     return hashValue.hexdigest()
+server.register_function(serverHasher)
 
 
-# Methode CompareHashes(user, hashValue) vergleicht Hashswerte von Cleint und Server
-# sowie authentifiziert der User:
-def compareHashes(user, hashValue):
-    for user in users:
-        secret = password == users[user]
-        if hasher(rand, secret) == hashValue:
-            return "success"
-        else:
-            return "failed"
+# compareHashes checks if the returned hash from
+# the server is equal to the hash from the client:
+def compareHashes(hashValue,username):
+    global omarIsLoggedIn
+    global maxIsLoggedIn
+    global jokerIsLoggedIn
+    if serverHasher(username) == hashValue:
+        if username == "omar" : omarIsLoggedIn = True
+        elif username == "max" : maxIsLoggedIn = True
+        elif username == "joker": jokerIsLoggedIn = True
+        return 'login succeeded'
+    else:
+        return 'login failed'
 server.register_function(compareHashes)
 
 
+def userIsLoggedIn(username):
+    print(username)
+    if username == "omar": return omarIsLoggedIn
+    elif username == "max": return maxIsLoggedIn
+    elif username == "joker" : return jokerIsLoggedIn
 
 
-
-'''
-def hasher(password):
-    if password == 'Pass123':
-        key = hashlib.sha256(genRandnumber().encode('utf-8'))
-        password + key.hexdigest()
-        return "you're logged int!"
-
-    elif password != 'Pass123':
-        return "logging failed!", server.server_close()
-
-
-
-server.register_function(hasher)
-
-'''
 
 # test function
-def add(x, y):
-    return x + y
-server.register_function(add, 'add')
+def add(x, y, username) :
+    print(x,y,username)
+    print(userIsLoggedIn(username))
+    if(userIsLoggedIn(username)):
+        return x + y
+    else:
+        return "your not logged in!"
 
+
+server.register_function(add, 'add')
 
 
 # Run the server's main loop
