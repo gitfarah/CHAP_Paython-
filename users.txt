@@ -1,0 +1,3 @@
+omar|pass123
+max|pass456
+joker|pass000
