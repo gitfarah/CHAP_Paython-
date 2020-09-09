@@ -14,7 +14,7 @@ server = SimpleXMLRPCServer(("localhost", 8000),
                             requestHandler=RequestHandler, allow_none=True)
 server.register_introspection_functions()
 
-# something to say about this!:
+# i will write comments about these variables too:
 omarIsLoggedIn = False
 maxIsLoggedIn = False
 jokerIsLoggedIn = False
