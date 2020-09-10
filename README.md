@@ -5,6 +5,7 @@
  
  ## Technologie
  > Hier wird bestimmte Biblöthik verwendet, um das Projekte zu ermöglichen. Die Biblöthike sind:
+ ```python
  * from xmlrpc.server import SimpleXMLRPCServer   # bietet die Möglichkeit, einfache, eigenständige XML-RPC-Server zu erstellen.
  * SimpleXMLRPCRequestHandler       # Erstellen Sie eine neue Request-Handler-Instanz.
  * import random     # Implementiert Pseudozufallszahlengeneratoren für verschiedene Verteilungen
