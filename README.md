@@ -55,4 +55,12 @@ elif select == 4:
 else: 
     print("Invalid input") 
 ```
+## Datein
+Das Projekt besteht aus mehreren Dateien. Diese Dateien sind:
+´´´bash
+* server.py  # hier ist die Server Datei, wo die Client sich authentifizieren kann und wo das Calculate Methode aufgerufen wird.
+* clientOne.py  # von dieser Datei kann ein Benutzer sich einlogen.
+* cleintTwo.py  # zusätzliche Client Datei, um zu testen, ob mehrer Benutzer gleichzeitig mit dem Server verbinden können. 
+* user.txt      # In diese Datei befindet sich die vorhandenen Kontos (username & password).
+
 
