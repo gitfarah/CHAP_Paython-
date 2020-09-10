@@ -28,28 +28,28 @@ In dem Projekt wird bestimmte Biblöthik verwendet, um richtig zu funktionieren.
  ```
  
  ## Features
-Der Client can in diesem Tool eine Methode "calculate()" aus dem Server aufrufen. Diese Methode ermöglicht zwei Zahlen zu(Addieren, subtrahieren, dividieren oder multiplizieren)
+Der Benutzer can aus dem cleints Datein eine Methode "calculate()" aus dem Server aufrufen. Diese Methode berechnet zwei Zahlen mit (Addition, Subtraktion, Dividieren oder Multiplizieren)
 ```python
 def calculate():
  # Take input from the user  
-select = int(input("Select operations form 1, 2, 3, 4 :")) 
+select = int(input("Select operations form add, sub, multi, div :")) 
   
 number_1 = int(input("Enter first number: ")) 
 number_2 = int(input("Enter second number: ")) 
   
-if select == 1: 
+if select == "add": 
     print(number_1, "+", number_2, "=", 
                     add(number_1, number_2)) 
   
-elif select == 2: 
+elif select == "sub": 
     print(number_1, "-", number_2, "=", 
                     subtract(number_1, number_2)) 
   
-elif select == 3: 
+elif select == "multi": 
     print(number_1, "*", number_2, "=", 
                     multiply(number_1, number_2)) 
   
-elif select == 4: 
+elif select == "div": 
     print(number_1, "/", number_2, "=", 
                     divide(number_1, number_2)) 
 else: 
