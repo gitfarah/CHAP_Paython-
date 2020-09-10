@@ -37,5 +37,40 @@ else:
     print("user don't exist!")
 
 
-# available method could be called and used as soon user is authenticated
-print(s.add(4,4, user))
+
+
+# available method could be called and used as soon as user is authenticated
+print("Please select operation -\n" \
+      "1. Add\n" \
+      "2. Subtract\n" \
+      "3. Multiply\n" \
+      "4. Divide\n")
+
+# Take input from the user
+select = int(input("Select operations form 1, 2, 3, 4 :"))
+
+number_1 = int(input("Enter first number: "))
+number_2 = int(input("Enter second number: "))
+
+if select == 1 :
+    print(number_1, "+", number_2, "=",
+          s.add(number_1, number_2, user))
+
+elif select == 2 :
+    print(number_1, "-", number_2, "=",
+          s.subtract(number_1, number_2, user))
+
+elif select == 3 :
+    print(number_1, "*", number_2, "=",
+          s.multiply(number_1, number_2, user))
+
+elif select == 4 :
+    print(number_1, "/", number_2, "=",
+          s.divide(number_1, number_2, user))
+else :
+    print("Invalid input")
+    
+    
+
+# test method call 
+#print(s.divide(12,4, user))

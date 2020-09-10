@@ -27,7 +27,6 @@ def getPasswordByUsername(username):
     for account in f.readlines():
         us, pw = account.strip().split("|")
         if (username in us):
-            print("lol")
             return pw
 
 # genRandnumber generates random number that will be stored afterwards:
@@ -72,7 +71,11 @@ def userIsLoggedIn(username):
 
 
 
-# test function
+
+###
+# Below are some methods to use once the user successfully login
+###
+# method that adds two numbers
 def add(x, y, username) :
     print(x,y,username)
     print(userIsLoggedIn(username))
@@ -80,9 +83,37 @@ def add(x, y, username) :
         return x + y
     else:
         return "your not logged in!"
-
-
 server.register_function(add, 'add')
+
+# method that substract a numbers from another
+def subtract(x, y, username) :
+    print(x,y,username)
+    print(userIsLoggedIn(username))
+    if(userIsLoggedIn(username)):
+        return x - y
+    else:
+        return "your not logged in!"
+server.register_function(subtract)
+
+# method that multiply two numbers
+def multiply(x, y, username) :
+    print(x,y,username)
+    print(userIsLoggedIn(username))
+    if(userIsLoggedIn(username)):
+        return x * y
+    else:
+        return "your not logged in!"
+server.register_function(multiply)
+
+# method that divide two numbers
+def divide(x, y, username) :
+    print(x,y,username)
+    print(userIsLoggedIn(username))
+    if(userIsLoggedIn(username)):
+        return x // y
+    else:
+        return "your not logged in!"
+server.register_function(divide)
 
 
 # Run the server's main loop
