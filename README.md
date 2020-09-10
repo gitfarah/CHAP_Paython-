@@ -62,4 +62,4 @@ Um das Projekt zu verwenden, starten Sie einfach die folgenden Dateien:
 
 
 ## License
-[Omar Farah](mr.omarfarah@gmail.com) 
+[Omar Farah (mr.omarfarah@gmail.com] 
