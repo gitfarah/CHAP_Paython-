@@ -29,7 +29,7 @@ https://github.com/gitfarah/CHAP_exercice.git
  
  ## Features
 Der Client can in diesem Tool eine Methode "calculate()" aus dem Server aufrufen. Diese Methode ermöglicht zwei Zahlen zu(Addieren, subtrahieren, dividieren oder multiplizieren)
-``python
+```python
 def calculate():
  # Take input from the user  
 select = int(input("Select operations form 1, 2, 3, 4 :")) 
@@ -54,3 +54,4 @@ elif select == 4:
                     divide(number_1, number_2)) 
 else: 
     print("Invalid input") 
+```
