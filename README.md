@@ -10,7 +10,7 @@
  * SimpleXMLRPCRequestHandler       # Erstellen Sie eine neue Request-Handler-Instanz.
  * import random     # Implementiert Pseudozufallszahlengeneratoren für verschiedene Verteilungen
  * import hashlib   # Implementierung eines sicheren Hash- und Message Digest-Algorithmus
- *
+ * import xmlrpc.client   #Der Client kann Methoden mit Parametern auf einem Remote-Server aufrufen (der Server wird durch einen URI benannt) und strukturierte Daten zurückerhalten.
  ```
  
 
