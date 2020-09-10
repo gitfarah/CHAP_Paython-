@@ -22,11 +22,11 @@
 
 > Um das Projekt zu nutzen, musst du nur diese repo zu deinem Geräte clonen.
 
-```python
+```bash
 # mit SSH 
 git@github.com:gitfarah/CHAP_exercice.git
 
 # mit HTTPS
 https://github.com/gitfarah/CHAP_exercice.git
-
+```
 
