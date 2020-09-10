@@ -1,5 +1,3 @@
-|version status|
-
 # CHAP_exercice
 
  Ist eine Client-/Server-Anwendung, mit der eine CHAP-basierte Authentifizierung zwischen zwei Rechnern über ein IP-basiertes Netzwerk erfolgen kann.
@@ -17,6 +15,7 @@ git@github.com:gitfarah/CHAP_exercice.git
 # mit HTTPS
 https://github.com/gitfarah/CHAP_exercice.git
 ```
+> Unterschützte Python Version in diesem Projekt ist Python 3.8
 
 ## Technologie
 
