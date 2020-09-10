@@ -59,3 +59,7 @@ Um das Projekt zu verwenden, starten Sie einfach die folgenden Dateien:
 > 2- Nach erfolgreichem Start der Datei "server.py" werden entweder die Dateien "clientOne.py" oder "clientTwo.py" gestartet oder beide können auch gleichzeitig gestartet werden.
 
 > 3- Implementierte Methoden in der Datei "server.py" werden automatisch aufgerufen, wenn der Benutzer den ausreichenden Benutzernamen und das Kennwort eingibt.
+
+
+## License
+[MIT](mr.omarfarah@gmail.com) 
