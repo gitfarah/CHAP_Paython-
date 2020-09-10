@@ -6,7 +6,7 @@
 
 # Installation
 
-> Um das Projekt zu nutzen, musst du nur diese repo zu deinem Geräte clonen.
+Um das Projekt zu nutzen, musst du nur diese repo zu deinem Geräte clonen.
 
 ```bash
 # mit SSH 
@@ -18,7 +18,7 @@ https://github.com/gitfarah/CHAP_exercice.git
 
 ## Technologie
 
- > In dem Projekt wird bestimmte Biblöthik verwendet, um richtig zu funktionieren. Die Biblöthike sind:
+In dem Projekt wird bestimmte Biblöthik verwendet, um richtig zu funktionieren. Die Biblöthike sind:
  ```python
  * from xmlrpc.server import SimpleXMLRPCServer     # bietet die Möglichkeit, einfache, eigenständige XML-RPC-Server zu erstellen.
  * SimpleXMLRPCRequestHandler     # Erstellen Sie eine neue Request-Handler-Instanz.
@@ -55,3 +55,4 @@ elif select == 4:
 else: 
     print("Invalid input") 
 ```
+
