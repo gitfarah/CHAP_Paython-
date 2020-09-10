@@ -54,6 +54,6 @@ Das Projekt besteht aus mehreren Dateien. Diese Dateien sind:
 
 ## Aufruf & Verwendung 
 Um das Projekt zu verwenden, starten Sie einfach die folgenden Dateien:
-> Starten Sie zuerst die Datei "server.py" auf Ihrer IDE
-> Nach erfolgreichem Start der Datei "server.py" werden entweder die Dateien "clientOne.py" oder "clientTwo.py" gestartet oder beide können auch gleichzeitig gestartet werden.
-> Implementierte Methoden in der Datei "server.py" werden automatisch aufgerufen, wenn der Benutzer den ausreichenden Benutzernamen und das Kennwort eingibt.
+> 1- Starten Sie zuerst die Datei "server.py" auf Ihrer IDE
+> 2- Nach erfolgreichem Start der Datei "server.py" werden entweder die Dateien "clientOne.py" oder "clientTwo.py" gestartet oder beide können auch gleichzeitig gestartet werden.
+> 3- Implementierte Methoden in der Datei "server.py" werden automatisch aufgerufen, wenn der Benutzer den ausreichenden Benutzernamen und das Kennwort eingibt.
