@@ -28,7 +28,7 @@ In dem Projekt wird bestimmte Bibliotheken verwendet, um richtig zu funktioniere
  ```
  
  ## Features
-Der Benutzer can aus dem cleints Datein eine Methode "calculate()" aus dem Server aufrufen. Diese Methode berechnet zwei Zahlen mit (Addition, Subtraktion, Dividieren oder Multiplizieren)
+Der Benutzer can aus dem Cleints Datein eine Methoden aus dem Server nach einem erfolgreichen login aufrufen. Diese Methode berechnet zwei Zahlen mit (Addition, Subtraktion, Dividieren oder Multiplizieren)
 ```python
 # method that adds two numbers
 def add(x, y, username) :
