@@ -4,7 +4,7 @@
  
  
 
-# Installation
+## Aufbau
 
 Um das Projekt zu nutzen, musst du nur diese repo zu deinem Geräte clonen.
 
@@ -18,7 +18,7 @@ https://github.com/gitfarah/CHAP_exercice.git
 
 ## Technologie
 
-In dem Projekt wird bestimmte Biblöthik verwendet, um richtig zu funktionieren. Die Biblöthike sind:
+In dem Projekt wird bestimmte Bibliotheken verwendet, um richtig zu funktionieren. Die Bibliotheken sind:
  ```python
  * from xmlrpc.server import SimpleXMLRPCServer     # bietet die Möglichkeit, einfache, eigenständige XML-RPC-Server zu erstellen.
  * SimpleXMLRPCRequestHandler     # Erstellen Sie eine neue Request-Handler-Instanz.
