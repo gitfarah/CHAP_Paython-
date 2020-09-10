@@ -11,7 +11,7 @@
  * import random     # Implementiert Pseudozufallszahlengeneratoren für verschiedene Verteilungen
  * import hashlib   # Implementierung eines sicheren Hash- und Message Digest-Algorithmus
  *
- ```python
+ ```
  
 
  
