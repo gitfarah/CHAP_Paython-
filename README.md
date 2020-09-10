@@ -30,30 +30,17 @@ In dem Projekt wird bestimmte Bibliotheken verwendet, um richtig zu funktioniere
  ## Features
 Der Benutzer can aus dem cleints Datein eine Methode "calculate()" aus dem Server aufrufen. Diese Methode berechnet zwei Zahlen mit (Addition, Subtraktion, Dividieren oder Multiplizieren)
 ```python
-def calculate():
- # Take input from the user  
-select = int(input("Select operations form add, sub, multi, div :")) 
-  
-number_1 = int(input("Enter first number: ")) 
-number_2 = int(input("Enter second number: ")) 
-  
-if select == "add": 
-    print(number_1, "+", number_2, "=", 
-                    add(number_1, number_2)) 
-  
-elif select == "sub": 
-    print(number_1, "-", number_2, "=", 
-                    subtract(number_1, number_2)) 
-  
-elif select == "multi": 
-    print(number_1, "*", number_2, "=", 
-                    multiply(number_1, number_2)) 
-  
-elif select == "div": 
-    print(number_1, "/", number_2, "=", 
-                    divide(number_1, number_2)) 
-else: 
-    print("Invalid input") 
+# method that adds two numbers
+def add(x, y, username) :
+
+# method that substract a numbers from another
+def subtract(x, y, username) :
+
+# method that multiply two numbers
+def multiply(x, y, username) :
+
+# method that divide two numbers
+def divide(x, y, username) :
 ```
 ## Datein
 Das Projekt besteht aus mehreren Dateien. Diese Dateien sind:
@@ -61,6 +48,6 @@ Das Projekt besteht aus mehreren Dateien. Diese Dateien sind:
  server.py  # hier ist die Server Datei, wo die Client sich authentifizieren kann und wo das Calculate Methode aufgerufen wird.
  clientOne.py  # von dieser Datei kann ein Benutzer sich einlogen.
  cleintTwo.py  # zusätzliche Client Datei, um zu testen, ob mehrer Benutzer gleichzeitig mit dem Server verbinden können. 
- user.txt      # In diese Datei befindet sich die vorhandenen Kontos (username & password).
+ user.txt      # In diese Datei befindet sich die vorhandenen Kontos mit(username & password).
 ```
 
